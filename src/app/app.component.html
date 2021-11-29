@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <h1>Grievances Registration Portal</h1>
+  <form>
+    <div class="mb-3">
+      <label>Grievance Type</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="messageType" value="adminGriev">
+        <label class="form-check-label">Administration Grievance</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="messageType" value="personalGriev">
+        <label class="form-check-label">Personal Grievance</label>
+      </div>
+    </div>
+    <br>
+    
+    <div class="form-group">
+      <table>
+        <tr>
+          <td><label>Name</label></td>
+          <td><input type="text" class="form-control"></td>
+        </tr>
+      </table>
+    </div>
+    <br>
+
+    <div class="form-group">
+      <table>
+        <tr>
+          <td><label>Regno</label></td>
+          <td><input type="text" class="form-control"></td>
+        </tr>
+      </table>
+    </div>
+    <br>
+
+    <div class="form-group">
+      <table>
+        <tr>
+          <td><label>Designation</label></td>
+          <td><select class="custom-select">
+            <option selected="selected">Choose your designation</option>
+            <option *ngFor="let designation of designations">{{ designation }}</option>
+          </select></td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    
+    <div class="form-group">
+      <table>
+        <tr>
+          <td class="align-top">
+            <label>Grievance</label>
+          </td>
+          <td>
+            <textarea class="form-group" rows="8" cols="80"></textarea>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <br>
+    <button class="btn btn-primary" type="submit">Submit</button>
+    
+  </form>
+</div>
