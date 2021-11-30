@@ -1,0 +1,98 @@
+<form [formGroup]="portalForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label>Grievance Type</label>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        formControlName="messageType"
+        value="adminGriev"
+      />
+      <label class="form-check-label">Administration Grievance</label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        formControlName="messageType"
+        value="personalGriev"
+      />
+      <label class="form-check-label">Personal Grievance</label>
+    </div>
+
+    <div *ngIf="submitted && f.messageType.errors">
+      <div *ngIf="f.messageType.errors.required">Grievance Type is required</div>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="form-group">
+    <table>
+      <tr>
+        <td><label>Name</label></td>
+        <td><input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" required/>
+          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">Name is required</div>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+  <br />
+
+  <div class="form-group">
+    <table>
+      <tr>
+        <td><label>Regno</label></td>
+        <td><input type="text" formControlName="regno" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.regno.errors }" required/>
+          <div *ngIf="submitted && f.regno.errors" class="invalid-feedback">
+            <div *ngIf="f.regno.errors.required">Regno is required</div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <br />
+
+  <div class="form-group">
+    <table>
+      <tr>
+        <td><label>Designation</label></td>
+        <td>
+          <select formControlName="designation" class="custom-select" [ngClass]="{ 'is-invalid': submitted && f.designation.errors }">
+            <option *ngFor="let designation of designations" [ngValue]="designation">{{
+              designation
+            }}</option>
+          </select>
+          <div *ngIf="submitted && f.designation.errors" class="invalid-feedback">
+            <div *ngIf="f.designation.errors.required">designation is required</div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <br />
+
+  <div class="form-group">
+    <table>
+      <tr>
+        <td class="align-top">
+          <label>Grievance</label>
+        </td>
+        <td>
+          <textarea formControlName="info" class="form-group" rows="8" cols="80" [ngClass]="{ 'is-invalid': submitted && f.info.errors }"></textarea>
+          <div *ngIf="submitted && f.info.errors" class="invalid-feedback">
+            <div *ngIf="f.info.errors.required">Grievance is required</div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+  <br />
+  <br />
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
